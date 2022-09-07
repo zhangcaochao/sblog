@@ -15,12 +15,14 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sylar/thirdpart)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sylar/thirdpart)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sylar/thirdpart/yaml-cpp/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sylar/thirdpart/jsoncpp-1.8.4/include)
+# 这里编译的时候加上了orm的东西
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/orm_out)
 link_directories(/apps/sylar/lib)
 link_directories(/usr/lib)
 link_directories(/usr/lib64)
 link_directories(/usr/lib64/mysql)
 
+# 这里编译的时候加上了orm的东西
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/orm_out)
 
 find_package(Boost REQUIRED)

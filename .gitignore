@@ -1,6 +1,7 @@
 build
 tags
 *.o
+*.so
 *.sub
 *.guess
 ltmain.sh
