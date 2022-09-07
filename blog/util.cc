@@ -4,9 +4,12 @@
 #include "sylar/config.h"
 
 namespace blog {
+    
+static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+
 
 static sylar::ConfigVar<int32_t>::ptr g_db_type =
-    sylar::Config::Lookup("db.type", (int32_t)2, "db type 1:sqlite3, 2:mysql");
+    sylar::Config::Lookup("db.type", (int32_t)1, "db type 1:sqlite3, 2:mysql");
 
 bool is_email(const std::string& str) {
     static const std::regex s_email_regex("([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,8}(\\.[a-z]{2,8})?)");
