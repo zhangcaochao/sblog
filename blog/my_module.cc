@@ -111,6 +111,7 @@ bool MyModule::onServerReady() {
         XX(CategoryInfoDao, "category");
         XX(LabelInfoDao, "label");
         XX(CommentInfoDao, "comment");
+        XX(ChannelInfoDao, "channelInfo");
 #undef XX
         SYLAR_LOG_INFO(g_logger) << "init database end";
     }
@@ -135,7 +136,9 @@ bool MyModule::onServerReady() {
     XX(CommentMgr);
 #undef XX
 
-    WordParserMgr::GetInstance();
+    // 下面这个功能是用jieba来分词，估计是用来提供搜索功能的,暂时还看不懂,先放在这里吧
+    // WordParserMgr::GetInstance();
+    // 建立索引
     IndexMgr::GetInstance()->build();
     sylar::IOManager::GetThis()->addTimer(5 * 60 * 1000, [](){
         IndexMgr::GetInstance()->build();
